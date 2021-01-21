@@ -4,16 +4,22 @@
     <item
         android:id="@+id/moviesFragment"
         android:title="@string/movies_fragment"
-        android:icon="@drawable/ic_movie"/>
+        android:icon="@drawable/movie_selector"/>
 
     <item
         android:id="@+id/favoriteMovieFragment"
         android:title="@string/favorite_movies_fragment"
-        android:icon="@drawable/ic_favorite"/>
+        android:icon="@drawable/favorite_selector"/>
+
+    <item
+        android:id="@+id/searchMovieFragment"
+        android:title="Search"
+        android:icon="@drawable/ic_search_movies"
+        />
 
     <item
         android:id="@+id/quoteMovieFragment"
         android:title="@string/quote_movies_fragment"
-        android:icon="@drawable/ic_quote"/>
+        android:icon="@drawable/quotes_selector"/>
 
 </menu>

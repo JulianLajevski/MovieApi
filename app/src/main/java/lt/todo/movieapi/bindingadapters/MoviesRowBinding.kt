@@ -1,6 +1,7 @@
 package lt.todo.movieapi.bindingadapters
 
 import android.widget.ImageView
+import android.widget.RatingBar
 import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import coil.load
@@ -15,6 +16,13 @@ class MoviesRowBinding {
 //        fun setImageViewResource(imageView: ImageView, resource: Int) {
 //            imageView.setImageResource(resource)
 //        }
+
+
+        @BindingAdapter("setRatingBar")
+        @JvmStatic
+        fun setRatingBar(ratingBar: RatingBar, votes: Double){
+            ratingBar.rating = votes.toFloat()
+        }
 
         @BindingAdapter("setNumberOfVotes")
         @JvmStatic

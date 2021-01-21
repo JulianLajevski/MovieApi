@@ -1,4 +1,4 @@
-package lt.todo.movieapi.ui
+package lt.todo.movieapi
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -22,15 +22,16 @@ class MainActivity : AppCompatActivity() {
 
         navController = findNavController(R.id.nav_host_fragment)
         val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.moviesFragment,
-                R.id.favoriteMovieFragment,
-                R.id.quoteMovieFragment
-            )
+                setOf(
+                        R.id.moviesFragment,
+                        R.id.favoriteMovieFragment,
+                        R.id.searchMovieFragment,
+                        R.id.quoteMovieFragment
+                )
         )
 
         bottomNavigation.setupWithNavController(navController)
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        // setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun onSupportNavigateUp(): Boolean {

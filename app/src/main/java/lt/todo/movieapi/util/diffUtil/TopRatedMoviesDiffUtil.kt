@@ -1,12 +1,12 @@
-package lt.todo.movieapi.util
+package lt.todo.movieapi.util.diffUtil
 
 import androidx.recyclerview.widget.DiffUtil
-import lt.todo.movieapi.data.network.models.upcoming.Result
+import lt.todo.movieapi.data.network.models.topRated.Result
 
-class MoviesDiffUtil(
+class TopRatedMoviesDiffUtil(
     private val oldList: List<Result>,
     private val newList: List<Result>
-): DiffUtil.Callback(){
+): DiffUtil.Callback() {
     override fun getOldListSize(): Int {
         return oldList.size
     }
@@ -16,7 +16,7 @@ class MoviesDiffUtil(
     }
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-       return oldList[oldItemPosition] === newList[newItemPosition]
+        return oldList[oldItemPosition] === newList[newItemPosition]
     }
 
     override fun areContentsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {

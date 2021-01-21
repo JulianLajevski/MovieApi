@@ -5,7 +5,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ApplicationComponent
 import lt.todo.movieapi.BuildConfig
-import lt.todo.movieapi.data.network.models.MovieApi
+import lt.todo.movieapi.api.MovieApi
 import lt.todo.movieapi.util.AuthInterceptor
 import lt.todo.movieapi.util.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
@@ -70,7 +70,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun providesApiService(retrofit: Retrofit): MovieApi{
+    fun providesApiService(retrofit: Retrofit): MovieApi {
         return retrofit.create(MovieApi::class.java)
     }
 

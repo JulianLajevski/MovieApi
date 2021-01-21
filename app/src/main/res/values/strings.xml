@@ -5,4 +5,6 @@
     <string name="movies_fragment">Movies</string>
     <string name="favorite_movies_fragment">Favorite</string>
     <string name="quote_movies_fragment">Quote</string>
+    <string name="no_internet_connection">No Internet Connection</string>
+    <string name="search">Search</string>
 </resources>
