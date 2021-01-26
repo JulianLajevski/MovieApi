@@ -9,7 +9,11 @@
         android:id="@+id/moviesFragment"
         android:name="lt.todo.movieapi.ui.fragments.movies.MoviesFragment"
         android:label="Movies"
-        tools:layout="@layout/fragment_movies" />
+        tools:layout="@layout/fragment_movies" >
+        <action
+            android:id="@+id/action_moviesFragment_to_movieDetailsActivity"
+            app:destination="@id/movieDetailsActivity" />
+    </fragment>
     <fragment
         android:id="@+id/quoteMovieFragment"
         android:name="lt.todo.movieapi.ui.fragments.quote.QuoteFragment"
@@ -24,5 +28,38 @@
         android:id="@+id/searchMovieFragment"
         android:name="lt.todo.movieapi.SearchMovieFragment"
         android:label="fragment_search_movie"
-        tools:layout="@layout/fragment_search_movie" />
+        tools:layout="@layout/fragment_search_movie" >
+        <action
+            android:id="@+id/action_searchMovieFragment_to_movieDetailsActivity"
+            app:destination="@id/movieDetailsActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/movieDetailsActivity"
+        android:name="lt.todo.movieapi.ui.fragments.details.MovieDetailsActivity"
+        android:label="Details"
+        tools:layout="@layout/activity_movie_details" >
+        <argument
+            android:name="result"
+            app:argType="integer" />
+    </activity>
+    <fragment
+        android:id="@+id/upcomingMoviesFragment"
+        android:name="lt.todo.movieapi.ui.fragments.upcomingMovies.UpcomingMoviesFragment"
+        android:label="fragment_upcoming_movies"
+        tools:layout="@layout/fragment_upcoming_movies" />
+    <fragment
+        android:id="@+id/topRatedMoviesFragment"
+        android:name="lt.todo.movieapi.ui.fragments.topRatedMovies.TopRatedMoviesFragment"
+        android:label="fragment_top_rated_movies"
+        tools:layout="@layout/fragment_top_rated_movies" />
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="lt.todo.movieapi.ui.fragments.popularMovies.PopularMoviesFragment"
+        android:label="fragment_popular_movies"
+        tools:layout="@layout/fragment_popular_movies" />
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="lt.todo.movieapi.MovieDetailFragment"
+        android:label="fragment_movie_detail_fragment"
+        tools:layout="@layout/fragment_movie_detail_fragment" />
 </navigation>

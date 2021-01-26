@@ -33,7 +33,7 @@ class SearchViewModel @ViewModelInject constructor(
                 val response = repository.remote.getSearchedMovies(queries)
                 moviesResponse.value = handleSearchedMoviesResponse(response)
             }catch (e: Exception){
-                moviesResponse.value = NetworkResult.Error("Recipes not found!")
+                moviesResponse.value = NetworkResult.Error("Movies not found!")
             }
         } else{
             moviesResponse.value = NetworkResult.Error("No Internet Connection!")
@@ -49,7 +49,7 @@ class SearchViewModel @ViewModelInject constructor(
                 return NetworkResult.Error("API Key Limited.")
             }
             response.body()!!.results.isNullOrEmpty() -> {
-                return NetworkResult.Error("Recipes not found.")
+                return NetworkResult.Error("Movies not found.")
             }
             response.isSuccessful -> {
                 val foodRecipes = response.body()

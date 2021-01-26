@@ -1,6 +1,7 @@
 package lt.todo.movieapi.data
 
 import lt.todo.movieapi.api.MovieApi
+import lt.todo.movieapi.data.network.models.moviedetails.MovieDetail
 import lt.todo.movieapi.data.network.models.popular.PopularResults
 import lt.todo.movieapi.data.network.models.search.SearchResults
 import lt.todo.movieapi.data.network.models.topRated.TopRatedResults
@@ -23,5 +24,8 @@ class ApiHelperImpl @Inject constructor(
 
     suspend fun getSearchedMovies(query: String):
             Response<SearchResults> = movieApi.getSearchedMovie(query)
+
+    suspend fun getMovieDetail(movieId: String):
+            Response<MovieDetail> = movieApi.getMovieDetail(movieId)
 
 }

@@ -126,4 +126,7 @@ dependencies {
     // Jsoup
     implementation 'org.jsoup:jsoup:1.13.1'
 
+
+    implementation "androidx.paging:paging-runtime:3.0.0-alpha04"
+
 }

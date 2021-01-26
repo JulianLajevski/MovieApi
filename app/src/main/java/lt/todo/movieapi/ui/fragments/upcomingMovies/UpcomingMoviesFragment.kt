@@ -1,5 +1,6 @@
 package lt.todo.movieapi.ui.fragments.upcomingMovies
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +13,7 @@ import kotlinx.android.synthetic.main.fragment_upcoming_movies.view.*
 import lt.todo.movieapi.viewModels.UpcomingMovieViewModel
 import lt.todo.movieapi.R
 import lt.todo.movieapi.adapter.UpcomingMoviesAdapter
+import lt.todo.movieapi.ui.fragments.details.MovieDetailsActivity
 import lt.todo.movieapi.util.NetworkResult
 
 
@@ -20,6 +22,8 @@ class UpcomingMoviesFragment : Fragment() {
     private lateinit var upcomingMovieViewModel: UpcomingMovieViewModel
     private val mAdapter by lazy { UpcomingMoviesAdapter() }
     private lateinit var mView: View
+
+    private lateinit var adapter: UpcomingMoviesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

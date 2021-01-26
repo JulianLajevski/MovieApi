@@ -11,7 +11,7 @@ import lt.todo.movieapi.databinding.UpcomingMovieRowLayoutBinding
 import lt.todo.movieapi.util.Constants
 import lt.todo.movieapi.util.diffUtil.UpcomingMoviesDiffUtil
 
-class UpcomingMoviesAdapter : RecyclerView.Adapter<UpcomingMoviesAdapter.MyViewHolder>() {
+class UpcomingMoviesAdapter() : RecyclerView.Adapter<UpcomingMoviesAdapter.MyViewHolder>() {
 
     private var movies = emptyList<Result>()
 
