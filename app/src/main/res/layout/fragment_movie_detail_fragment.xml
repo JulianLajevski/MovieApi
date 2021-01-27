@@ -3,245 +3,310 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="1000dp"
     android:background="@color/white"
     tools:context=".MovieDetailFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/movieCardView"
-        android:layout_width="wrap_content"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="30dp"
-        android:layout_marginTop="25dp"
-        android:outlineAmbientShadowColor="@color/pink"
-        android:outlineSpotShadowColor="@color/pink"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageView
-            android:id="@+id/movieImageView"
-            android:layout_width="125dp"
-            android:layout_height="175dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/sponge" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/movieCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:outlineAmbientShadowColor="@color/pink"
+            android:outlineSpotShadowColor="@color/pink"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="25dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.cardview.widget.CardView>
+            <ImageView
+                android:id="@+id/movieImageView"
+                android:layout_width="125dp"
+                android:layout_height="175dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/sponge" />
 
-    <TextView
-        android:id="@+id/movieTitleTextView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="35dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="15dp"
-        android:fontFamily="@font/hk_grotesk_bold"
-        android:text="Tenet"
-        android:textColor="@color/black"
-        android:textSize="25sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.147"
-        app:layout_constraintStart_toEndOf="@+id/movieCardView"
-        app:layout_constraintTop_toTopOf="parent" />
+        </androidx.cardview.widget.CardView>
 
-    <RatingBar
-        android:id="@+id/movieRatingBar"
-        style="?android:attr/ratingBarStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:progressBackgroundTint="#F18D7B"
-        android:progressTint="#F18D7B"
-        android:rating="3"
-        android:secondaryProgressTint="#F18D7B"
-        android:stepSize="0.125"
-        app:layout_constraintEnd_toEndOf="@+id/movieTitleTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/movieTitleTextView"
-        app:layout_constraintTop_toTopOf="@+id/movieRatingTextView" />
+        <TextView
+            android:id="@+id/movieTitleTextView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginEnd="15dp"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:text="Tenet"
+            android:textColor="@color/black"
+            android:textSize="25sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.147"
+            app:layout_constraintStart_toEndOf="@+id/movieCardView"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/movieRatingTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:fontFamily="@font/hk_grotesk_bold"
-        android:text="8.5/10"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@+id/movieCardView"
-        app:layout_constraintStart_toEndOf="@+id/movieRatingBar"
-        app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView"
-        app:layout_constraintVertical_bias="0.125" />
+        <RatingBar
+            android:id="@+id/movieRatingBar"
+            style="?android:attr/ratingBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:progressBackgroundTint="#F18D7B"
+            android:progressTint="#F18D7B"
+            android:rating="3"
+            android:secondaryProgressTint="#F18D7B"
+            android:stepSize="0.125"
+            app:layout_constraintEnd_toEndOf="@+id/movieTitleTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/movieTitleTextView"
+            app:layout_constraintTop_toTopOf="@+id/movieRatingTextView" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="135dp"
-        android:layout_marginEnd="25dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_favorite_filled"
-        app:tint="@color/white"
-        app:backgroundTint="@color/pink"
-        app:fabCustomSize="44dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/movieRatingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:text="8.5/10"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/movieCardView"
+            app:layout_constraintStart_toEndOf="@+id/movieRatingBar"
+            app:layout_constraintTop_toBottomOf="@+id/movieTitleTextView"
+            app:layout_constraintVertical_bias="0.125" />
+
+
+
+        <TextView
+            android:id="@+id/movieGenresTextView"
+            android:layout_width="215dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/hk_grotesk_semibold"
+            android:text="Comedy / Action"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/movieRatingBar"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/movieRatingBar"
+            app:layout_constraintTop_toBottomOf="@+id/movieRatingBar" />
+
+        <TextView
+            android:id="@+id/movieDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/hk_grotesk_semibold"
+            android:text="1978-09-12"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toEndOf="@+id/movieGenresTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/movieGenresTextView"
+            app:layout_constraintTop_toBottomOf="@+id/movieGenresTextView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <View
-        android:layout_width="370dp"
+        android:id="@+id/view2"
+        android:layout_width="360dp"
         android:layout_height="1dp"
+        android:layout_marginTop="20dp"
+
         android:background="#86D6D6D6"
-        app:layout_constraintBottom_toTopOf="@+id/textView3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movieCardView" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/hk_grotesk_semibold"
-        android:text="Duration"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/movieCardView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/movieCardView"
-        app:layout_constraintTop_toBottomOf="@+id/movieCardView" />
-
-    <TextView
-        android:id="@+id/movieDurationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/hk_grotesk_bold"
-        android:text="105 min"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/movieCardView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/hk_grotesk_semibold"
-        android:text="Language"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/movieLanguageTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/movieLanguageTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/movieLanguageTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
-        android:layout_marginTop="1dp"
-        android:fontFamily="@font/hk_grotesk_bold"
-        android:text="English"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/movieDurationTextView"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/hk_grotesk_semibold"
-        android:text="Budget"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="@+id/movieBudgetTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/movieBudgetTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView3" />
-
-    <TextView
-        android:id="@+id/movieBudgetTextView"
-        android:layout_width="99dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="51dp"
-        android:layout_marginTop="1dp"
-        android:fontFamily="@font/hk_grotesk_bold"
-        android:text="200000000$"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/movieLanguageTextView"
-        app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/hk_grotesk_semibold"
-        android:text="Votes"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="@+id/movieVotesTextView"
-        app:layout_constraintTop_toTopOf="@+id/textView5" />
-
-    <TextView
-        android:id="@+id/movieVotesTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="1dp"
-        android:fontFamily="@font/hk_grotesk_bold"
-        android:text="1235"
-        android:textColor="@color/black"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/movieBudgetTextView"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        android:text="Storyline"
+        android:textSize="20sp"
+        android:textColor="@color/pink"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view2" />
 
     <TextView
         android:id="@+id/movieDescription"
         android:layout_width="367dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="Eight-year-old Kevin McCallister makes the most of the situation after his family unwittingly leaves him behind when they go on Christmas vacation. But when a pair of bungling burglars set their sights on Kevin's house, the plucky kid stands ready to defend his territory. By planting booby traps galore, adorably mischievous Kevin stands his ground as his frantic mother attempts to race home before Christmas Day."
         android:fontFamily="@font/hk_grotesk_semibold"
-        android:textSize="15sp"
+        android:layout_marginTop="15dp"
         android:lineSpacingExtra="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/movieDurationTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/movieDurationTextView"
-        app:layout_constraintTop_toBottomOf="@+id/movieDurationTextView" />
-
-    <TextView
-        android:id="@+id/movieGenresTextView"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/hk_grotesk_semibold"
-        android:text="Comedy / Action"
+        android:text="Eight-year-old Kevin McCallister makes the most of the situation after his family unwittingly leaves him behind when they go on Christmas vacation. But when a pair of bungling burglars set their sights on Kevin's house, the plucky kid stands ready to defend his territory. By planting booby traps galore, adorably mischievous Kevin stands his ground as his frantic mother attempts to race home before Christmas Day."
+        android:textSize="15sp"
         android:textColor="@android:color/darker_gray"
-        android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/movieRatingBar"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/movieRatingBar"
-        app:layout_constraintTop_toBottomOf="@+id/movieRatingBar" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
-    <TextView
-        android:id="@+id/movieDateTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="1978-09-12"
-        android:fontFamily="@font/hk_grotesk_semibold"
-        android:textColor="@android:color/darker_gray"
-        android:textSize="13sp"
-        app:layout_constraintEnd_toEndOf="@+id/movieGenresTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/movieGenresTextView"
-        app:layout_constraintTop_toBottomOf="@+id/movieGenresTextView" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="370dp"
+        android:layout_height="230dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/movieDescription">
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#86D6D6D6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:text="Details"
+            android:textColor="@color/pink"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/view3" />
+
+        <TextView
+            android:id="@+id/orgTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:text="Original Title"
+            app:layout_constraintEnd_toEndOf="@+id/originalTitleTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/originalTitleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/originalTitleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The Spongebob"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/orgTitle" />
+
+        <TextView
+            android:id="@+id/orgLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:text="Original language"
+            app:layout_constraintEnd_toEndOf="@+id/originalLanguageTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/originalLanguageTextView"
+            app:layout_constraintTop_toBottomOf="@+id/originalTitleTextView" />
+
+        <TextView
+            android:id="@+id/originalLanguageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="English"
+            app:layout_constraintStart_toStartOf="@+id/originalTitleTextView"
+            app:layout_constraintTop_toBottomOf="@+id/orgLanguage" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:layout_marginTop="20dp"
+            android:text="Status"
+            app:layout_constraintEnd_toEndOf="@+id/statusTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/statusTextView"
+            app:layout_constraintTop_toBottomOf="@+id/originalLanguageTextView" />
+
+        <TextView
+            android:id="@+id/statusTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Released"
+            app:layout_constraintStart_toStartOf="@+id/originalLanguageTextView"
+            app:layout_constraintTop_toBottomOf="@+id/status" />
+
+        <TextView
+            android:id="@+id/budget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:text="Budget"
+            app:layout_constraintEnd_toEndOf="@+id/budgetTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/budgetTextView"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/budgetTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="208dp"
+            android:text="$2300000"
+            app:layout_constraintStart_toStartOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/budget" />
+
+        <TextView
+            android:id="@+id/revenue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:text="Revenue"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="@+id/revenueTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/revenueTextView"
+            app:layout_constraintTop_toBottomOf="@+id/budgetTextView" />
+
+        <TextView
+            android:id="@+id/revenueTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="$250000000"
+            app:layout_constraintStart_toStartOf="@+id/budgetTextView"
+            app:layout_constraintTop_toBottomOf="@+id/revenue" />
+
+        <TextView
+            android:id="@+id/releaseDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/hk_grotesk_bold"
+            android:layout_marginTop="20dp"
+            android:text="Release date"
+            app:layout_constraintEnd_toEndOf="@+id/releaseDateTextView"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/releaseDateTextView"
+            app:layout_constraintTop_toBottomOf="@+id/revenueTextView" />
+
+        <TextView
+            android:id="@+id/releaseDateTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2020-02-03"
+            app:layout_constraintStart_toStartOf="@+id/revenueTextView"
+            app:layout_constraintTop_toBottomOf="@+id/releaseDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
