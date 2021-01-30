@@ -58,16 +58,6 @@ class MovieDetailsActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun setUpTabs() {
-        val adapter = supportFragmentManager.let {
-            ViewPagerAdapter(supportFragmentManager = it)
-        }
-        adapter?.addFragment((MovieDetailFragment()), "Movie")
-
-        viewPager.adapter = adapter
-
-        tabs.setupWithViewPager(viewPager)
-    }
 
     private fun setupObserver() {
         detailViewModel.movieDetails.observe(this, {

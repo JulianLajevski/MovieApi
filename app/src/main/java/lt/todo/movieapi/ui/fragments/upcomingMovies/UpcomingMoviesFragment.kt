@@ -1,20 +1,19 @@
 package lt.todo.movieapi.ui.fragments.upcomingMovies
 
-import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_upcoming_movies.view.*
-import lt.todo.movieapi.viewModels.UpcomingMovieViewModel
 import lt.todo.movieapi.R
 import lt.todo.movieapi.adapter.UpcomingMoviesAdapter
-import lt.todo.movieapi.ui.fragments.details.MovieDetailsActivity
 import lt.todo.movieapi.util.NetworkResult
+import lt.todo.movieapi.viewModels.UpcomingMovieViewModel
 
 
 class UpcomingMoviesFragment : Fragment() {
@@ -23,7 +22,7 @@ class UpcomingMoviesFragment : Fragment() {
     private val mAdapter by lazy { UpcomingMoviesAdapter() }
     private lateinit var mView: View
 
-    private lateinit var adapter: UpcomingMoviesAdapter
+    //private lateinit var adapter: UpcomingMoviesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +42,16 @@ class UpcomingMoviesFragment : Fragment() {
         requestApiData()
 
         return mView
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.getItemId()) {
+            android.R.id.home -> {
+                requireActivity().onBackPressed()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

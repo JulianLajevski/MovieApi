@@ -4,8 +4,8 @@ import androidx.recyclerview.widget.DiffUtil
 import lt.todo.movieapi.data.network.models.upcoming.Result
 
 class UpcomingMoviesDiffUtil(
-    private val oldList: List<Result>,
-    private val newList: List<Result>
+        private val oldList: List<Result>,
+        private val newList: List<Result>
 ): DiffUtil.Callback(){
     override fun getOldListSize(): Int {
         return oldList.size
