@@ -1,10 +1,13 @@
 package lt.todo.movieapi.ui.fragments.details
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import android.util.Log
 import android.view.MenuItem
 import android.view.Window
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -37,6 +40,7 @@ class MovieDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_movie_details)
+        showLoadingDialog()
 
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
@@ -58,6 +62,17 @@ class MovieDetailsActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun showLoadingDialog(){
+        val builder = AlertDialog.Builder(this)
+        val dialogView = layoutInflater.inflate(R.layout.progress_dialogg,null)
+        val message = dialogView.findViewById<TextView>(R.id.messageTv)
+        message.text = "Loading..."
+        builder.setView(dialogView)
+        builder.setCancelable(false)
+        val dialog = builder.create()
+        dialog.show()
+        Handler().postDelayed({dialog.dismiss()},800)
+    }
 
     private fun setupObserver() {
         detailViewModel.movieDetails.observe(this, {

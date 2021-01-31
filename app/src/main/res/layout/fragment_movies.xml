@@ -56,7 +56,7 @@
                 app:layout_constraintStart_toEndOf="@+id/textView3"
                 app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.todkars.shimmer.ShimmerRecyclerView
                 android:id="@+id/upcomingRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="285dp"
@@ -66,7 +66,8 @@
                 android:layout_centerHorizontal="true"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintTop_toBottomOf="@+id/textView3"
+                app:shimmer_recycler_layout="@layout/home_upcoming_toprated_placeholder"/>
 
             <TextView
                 android:id="@+id/textView4"
@@ -94,7 +95,7 @@
                 app:layout_constraintStart_toEndOf="@+id/textView4"
                 app:layout_constraintTop_toBottomOf="@+id/upcomingRecyclerView" />
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.todkars.shimmer.ShimmerRecyclerView
                 android:id="@+id/popularRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -103,7 +104,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView4" />
+                app:layout_constraintTop_toBottomOf="@+id/textView4"
+                app:shimmer_recycler_layout="@layout/home_popular_placeholder"/>
+
 
             <TextView
                 android:id="@+id/textView5"
@@ -132,7 +135,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/popularRecyclerView" />
 
 
-            <androidx.recyclerview.widget.RecyclerView
+            <com.todkars.shimmer.ShimmerRecyclerView
                 android:id="@+id/topRatedRecyclerView"
                 android:layout_width="match_parent"
                 android:layout_height="285dp"
@@ -140,7 +143,8 @@
                 android:layout_marginTop="20dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView5" />
+                app:layout_constraintTop_toBottomOf="@+id/textView5"
+                app:shimmer_recycler_layout="@layout/home_upcoming_toprated_placeholder"/>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

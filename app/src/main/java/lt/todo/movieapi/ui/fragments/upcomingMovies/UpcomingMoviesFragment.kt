@@ -1,11 +1,16 @@
 package lt.todo.movieapi.ui.fragments.upcomingMovies
 
+import android.app.AlertDialog
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
+import androidx.core.view.isGone
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -55,7 +60,20 @@ class UpcomingMoviesFragment : Fragment() {
     }
 
 
+    private fun showLoadingDialog(){
+        val builder = AlertDialog.Builder(this.context)
+        val dialogView = layoutInflater.inflate(R.layout.progress_dialogg,null)
+        val message = dialogView.findViewById<TextView>(R.id.messageTv)
+        message.text = "Loading..."
+        builder.setView(dialogView)
+        builder.setCancelable(false)
+        val dialog = builder.create()
+        dialog.show()
+        Handler().postDelayed({dialog.dismiss()},800)
+    }
+
     private fun setupRecyclerView() {
+        showLoadingDialog()
         mView.recyclerViewUpcoming.adapter = mAdapter
         mView.recyclerViewUpcoming.layoutManager = LinearLayoutManager(requireContext())
         showShimmerEffect()

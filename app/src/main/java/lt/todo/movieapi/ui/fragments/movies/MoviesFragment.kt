@@ -9,9 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.todkars.shimmer.ShimmerRecyclerView
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_movies.*
 import kotlinx.android.synthetic.main.fragment_movies.view.*
+import kotlinx.android.synthetic.main.fragment_popular_movies.view.*
 import kotlinx.android.synthetic.main.fragment_upcoming_movies.view.*
 import lt.todo.movieapi.R
 import lt.todo.movieapi.adapter.homeAdapters.HomePopularMovieAdapter
@@ -96,16 +99,27 @@ class MoviesFragment : Fragment() {
     private fun setupUpcomingRecyclerView(){
         mView.upcomingRecyclerView.adapter = upcomingAdapter
         mView.upcomingRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        showShimmer(mView.upcomingRecyclerView)
     }
 
     private fun setupPopularRecyclerView(){
         mView.popularRecyclerView.adapter = popularAdapter
         mView.popularRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        showShimmer(mView.popularRecyclerView)
     }
 
     private fun setupTopRatedRecyclerView(){
         mView.topRatedRecyclerView.adapter = topRatedAdapter
         mView.topRatedRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
+        showShimmer(mView.topRatedRecyclerView)
+    }
+
+    fun showShimmer(recyclerView: ShimmerRecyclerView){
+        recyclerView.showShimmer()
+    }
+
+    fun hideShimmer(recyclerView: ShimmerRecyclerView){
+        recyclerView.hideShimmer()
     }
 
     private fun requestUpcomingApiData(){
@@ -113,14 +127,19 @@ class MoviesFragment : Fragment() {
         upcomingViewModel.moviesResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResult.Success -> {
+                    hideShimmer(mView.upcomingRecyclerView)
                     response.data?.let { upcomingAdapter.setData(it) }
                 }
                 is NetworkResult.Error -> {
+                    hideShimmer(mView.upcomingRecyclerView)
                     Toast.makeText(
                             requireContext(),
                             response.message.toString(),
                             Toast.LENGTH_SHORT
                     ).show()
+                }
+                is NetworkResult.Loading -> {
+                    showShimmer(mView.upcomingRecyclerView)
                 }
             }
         })
@@ -131,14 +150,19 @@ class MoviesFragment : Fragment() {
         popularViewModel.moviesResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResult.Success -> {
+                    hideShimmer(mView.popularRecyclerView)
                     response.data?.let { popularAdapter.setData(it) }
                 }
                 is NetworkResult.Error -> {
+                    hideShimmer(mView.popularRecyclerView)
                     Toast.makeText(
                             requireContext(),
                             response.message.toString(),
                             Toast.LENGTH_SHORT
                     ).show()
+                }
+                is NetworkResult.Loading -> {
+                    showShimmer(mView.popularRecyclerView)
                 }
             }
         })
@@ -149,14 +173,19 @@ class MoviesFragment : Fragment() {
         topRatedViewModel.moviesResponse.observe(viewLifecycleOwner, { response ->
             when (response) {
                 is NetworkResult.Success -> {
+                    hideShimmer(mView.topRatedRecyclerView)
                     response.data?.let { topRatedAdapter.setData(it) }
                 }
                 is NetworkResult.Error -> {
+                    hideShimmer(mView.topRatedRecyclerView)
                     Toast.makeText(
                             requireContext(),
                             response.message.toString(),
                             Toast.LENGTH_SHORT
                     ).show()
+                }
+                is NetworkResult.Loading -> {
+                    showShimmer(mView.topRatedRecyclerView)
                 }
             }
         })
