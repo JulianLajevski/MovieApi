@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.bumptech.glide.Glide
+import lt.todo.movieapi.R
 import lt.todo.movieapi.data.network.models.upcoming.Result
 import lt.todo.movieapi.data.network.models.upcoming.UpcomingResults
 import lt.todo.movieapi.databinding.UpcomingMovieRowLayoutBinding
@@ -20,8 +22,11 @@ class UpcomingMoviesAdapter() : RecyclerView.Adapter<UpcomingMoviesAdapter.MyVie
             fun bind(result: Result){
                 binding.result = result
                 binding.executePendingBindings()
-                Glide.with(binding.movieImageView.context).load(Constants.IMAGE_URL+result.posterPath)
-                    .into(binding.movieImageView)
+
+                    binding.movieImageView.load(Constants.IMAGE_URL + result.posterPath) {
+                        crossfade(500)
+                        error(R.drawable.ic_error_placeholder)
+                    }
             }
 
         companion object{

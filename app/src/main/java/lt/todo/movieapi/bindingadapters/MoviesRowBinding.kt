@@ -9,8 +9,11 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.databinding.BindingAdapter
 import androidx.navigation.findNavController
 import coil.load
+import lt.todo.movieapi.MovieDetailFragmentDirections
 import lt.todo.movieapi.R
 import lt.todo.movieapi.SearchMovieFragmentDirections
+import lt.todo.movieapi.data.network.models.actors.Cast
+import lt.todo.movieapi.data.network.models.actorsdetails.ActorDetail
 import lt.todo.movieapi.ui.fragments.movies.MoviesFragmentDirections
 import lt.todo.movieapi.ui.fragments.popularMovies.PopularMoviesFragmentDirections
 import lt.todo.movieapi.ui.fragments.topRatedMovies.TopRatedMoviesFragmentDirections
@@ -19,23 +22,45 @@ import lt.todo.movieapi.ui.fragments.upcomingMovies.UpcomingMoviesFragmentDirect
 
 class MoviesRowBinding {
 
-    companion object{
+    companion object {
 
-//        @BindingAdapter("android:src")
-//        fun setImageViewResource(imageView: ImageView, resource: Int) {
-//            imageView.setImageResource(resource)
+//        @BindingAdapter("onActorsClickListener")
+//        @JvmStatic
+//        fun onActorsClickListener(actorRowLayout: ConstraintLayout, id: Int) {
+//            actorRowLayout.setOnClickListener {
+//                try {
+//                    val action =
+//                        MovieDetailFragmentDirections.actionMovieDetailFragmentToActorDetailActivity(id)
+//                    actorRowLayout.findNavController().navigate(action)
+//                } catch (e: Exception) {
+//                    Log.d("OnActorClickListener", e.message.toString())
+//                }
+//            }
 //        }
 
+        @BindingAdapter ("onActorClick")
+        @JvmStatic
+        fun onActorClick(actorRowLayout: ConstraintLayout, result: Cast){
+            actorRowLayout.setOnClickListener {
+                try {
+                    val action =
+                            MovieDetailFragmentDirections.actionMovieDetailFragment2ToActorsDetailActivity(result)
+                    actorRowLayout.findNavController().navigate(action)
+                }catch (e: Exception){
+                    Log.d("OnActorClick", e.message.toString())
+                }
+            }
+        }
 
         @BindingAdapter("onHomeMovieClickListener")
         @JvmStatic
-        fun onHomeMovieClickListener(movieRowLayout: ConstraintLayout, id: Int){
+        fun onHomeMovieClickListener(movieRowLayout: ConstraintLayout, id: Int) {
             movieRowLayout.setOnClickListener {
                 try {
                     val action =
-                            MoviesFragmentDirections.actionMoviesFragmentToMovieDetailsActivity(id)
+                        MoviesFragmentDirections.actionMoviesFragmentToMovieDetailsActivity(id)
                     movieRowLayout.findNavController().navigate(action)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Log.d("OnMovieClickListener", e.message.toString())
                 }
 
@@ -44,13 +69,15 @@ class MoviesRowBinding {
 
         @BindingAdapter("onTopRatedMovieClickListener")
         @JvmStatic
-        fun onTopRatedMovieClickListener(movieRowLayout: ConstraintLayout, id: Int){
+        fun onTopRatedMovieClickListener(movieRowLayout: ConstraintLayout, id: Int) {
             movieRowLayout.setOnClickListener {
                 try {
                     val action =
-                        TopRatedMoviesFragmentDirections.actionTopRatedMoviesFragmentToMovieDetailsActivity(id)
+                        TopRatedMoviesFragmentDirections.actionTopRatedMoviesFragmentToMovieDetailsActivity(
+                            id
+                        )
                     movieRowLayout.findNavController().navigate(action)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Log.d("OnMovieClickListener", e.message.toString())
                 }
 
@@ -59,12 +86,15 @@ class MoviesRowBinding {
 
         @BindingAdapter("onPopularMovieListener")
         @JvmStatic
-        fun onPopularMovieClickListener(movieRowLayout: ConstraintLayout, id: Int){
+        fun onPopularMovieClickListener(movieRowLayout: ConstraintLayout, id: Int) {
             movieRowLayout.setOnClickListener {
                 try {
-                    val action = PopularMoviesFragmentDirections.actionPopularMoviesFragmentToMovieDetailsActivity(id)
+                    val action =
+                        PopularMoviesFragmentDirections.actionPopularMoviesFragmentToMovieDetailsActivity(
+                            id
+                        )
                     movieRowLayout.findNavController().navigate(action)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Log.d("OnMovieClickListener", e.message.toString())
                 }
 
@@ -73,12 +103,15 @@ class MoviesRowBinding {
 
         @BindingAdapter("onUpcomingMovieListener")
         @JvmStatic
-        fun onUpcomingMovieClickListener(movieRowLayout: ConstraintLayout, id: Int){
+        fun onUpcomingMovieClickListener(movieRowLayout: ConstraintLayout, id: Int) {
             movieRowLayout.setOnClickListener {
                 try {
-                    val action = UpcomingMoviesFragmentDirections.actionUpcomingMoviesFragmentToMovieDetailsActivity(id)
+                    val action =
+                        UpcomingMoviesFragmentDirections.actionUpcomingMoviesFragmentToMovieDetailsActivity(
+                            id
+                        )
                     movieRowLayout.findNavController().navigate(action)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Log.d("OnMovieClickListener", e.message.toString())
                 }
 
@@ -87,13 +120,15 @@ class MoviesRowBinding {
 
         @BindingAdapter("onSearchMovieClickListener")
         @JvmStatic
-        fun onSearchMovieClickListener(movieRowLayout: ConstraintLayout, id: Int){
+        fun onSearchMovieClickListener(movieRowLayout: ConstraintLayout, id: Int) {
             movieRowLayout.setOnClickListener {
-                try{
+                try {
                     val action =
-                        SearchMovieFragmentDirections.actionSearchMovieFragmentToMovieDetailsActivity(id)
+                        SearchMovieFragmentDirections.actionSearchMovieFragmentToMovieDetailsActivity(
+                            id
+                        )
                     movieRowLayout.findNavController().navigate(action)
-                }catch (e: Exception){
+                } catch (e: Exception) {
                     Log.d("OnSearchMovieListener", e.message.toString())
                 }
             }
@@ -101,25 +136,25 @@ class MoviesRowBinding {
 
         @BindingAdapter("setRatingBar")
         @JvmStatic
-        fun setRatingBar(ratingBar: RatingBar, votes: Double){
+        fun setRatingBar(ratingBar: RatingBar, votes: Double) {
             ratingBar.rating = votes.toFloat()
         }
 
         @BindingAdapter("setNumberOfVotes")
         @JvmStatic
-        fun setNumberOfVotes(textView: TextView, votes: Int){
+        fun setNumberOfVotes(textView: TextView, votes: Int) {
             textView.text = votes.toString()
         }
 
         @BindingAdapter("setNumberOfVotesAverage")
         @JvmStatic
-        fun setNumberOfVotesAverage(textView: TextView, avgVotes: Double){
+        fun setNumberOfVotesAverage(textView: TextView, avgVotes: Double) {
             textView.text = avgVotes.toString()
         }
 
         @BindingAdapter("loadImageFromUrl")
-        fun loadImageFromUrl(imageView: ImageView, url: String){
-            imageView.load(url){
+        fun loadImageFromUrl(imageView: ImageView, url: String) {
+            imageView.load(url) {
                 crossfade(500)
                 error(R.drawable.ic_error_placeholder)
             }

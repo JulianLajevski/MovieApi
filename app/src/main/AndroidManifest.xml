@@ -14,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MovieApi">
-        <activity android:name=".ui.fragments.details.MovieDetailsActivity"></activity>
+        <activity android:name=".ActorsDetailActivity"></activity>
+        <activity android:name=".ui.fragments.actorDetail.ActorDetailActivity" />
+        <activity android:name=".ui.fragments.details.MovieDetailsActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

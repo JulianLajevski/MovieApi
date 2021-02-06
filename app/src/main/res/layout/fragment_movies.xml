@@ -23,8 +23,8 @@
 
             <ImageView
                 android:id="@+id/imageView2"
-                android:layout_width="160dp"
-                android:layout_height="70dp"
+                android:layout_width="180dp"
+                android:layout_height="80dp"
                 android:background="@drawable/movielogo"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -67,6 +67,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3"
+                android:overScrollMode="never"
                 app:shimmer_recycler_layout="@layout/home_upcoming_toprated_placeholder"/>
 
             <TextView
@@ -105,6 +106,7 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView4"
+                android:overScrollMode="never"
                 app:shimmer_recycler_layout="@layout/home_popular_placeholder"/>
 
 
@@ -144,6 +146,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5"
+                android:overScrollMode="never"
                 app:shimmer_recycler_layout="@layout/home_upcoming_toprated_placeholder"/>
 
 

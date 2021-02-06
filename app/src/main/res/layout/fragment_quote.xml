@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#60E4E4E4"
     tools:context=".ui.fragments.quote.QuoteFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -19,10 +20,11 @@
         app:titleTextColor="@color/white" />
 
     <ImageView
+        android:id="@+id/imageView3"
         android:layout_width="100dp"
         android:layout_height="100dp"
+        android:layout_marginTop="170dp"
         android:background="@drawable/popcorn"
-        app:layout_constraintBottom_toTopOf="@+id/quotesTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,12 +39,12 @@
         android:fontFamily="@font/hk_grotesk_bold"
         android:gravity="center"
         android:text="Quotes fragment"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.113" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

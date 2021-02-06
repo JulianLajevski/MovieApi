@@ -5,7 +5,9 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import coil.load
 import com.bumptech.glide.Glide
+import lt.todo.movieapi.R
 import lt.todo.movieapi.data.network.models.search.Result
 import lt.todo.movieapi.data.network.models.search.SearchResults
 import lt.todo.movieapi.databinding.SearchMovieRowLayoutBinding
@@ -22,8 +24,12 @@ class SearchMoviesAdapter : RecyclerView.Adapter<SearchMoviesAdapter.MyViewHolde
         fun bind(result: Result) {
                 binding.result = result
                 binding.executePendingBindings()
-                Glide.with(binding.movieImageView.context).load(Constants.IMAGE_URL + result.posterPath)
-                        .into(binding.movieImageView)
+
+            binding.movieImageView.load(Constants.IMAGE_URL + result.posterPath) {
+                crossfade(500)
+                error(R.drawable.default_placeholder)
+            }
+
         }
 
         companion object {

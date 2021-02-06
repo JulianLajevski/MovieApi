@@ -1,6 +1,9 @@
 package lt.todo.movieapi.data
 
 import lt.todo.movieapi.api.MovieApi
+import lt.todo.movieapi.data.network.models.actors.Cast
+import lt.todo.movieapi.data.network.models.actors.actorsResults
+import lt.todo.movieapi.data.network.models.actorsdetails.ActorDetail
 import lt.todo.movieapi.data.network.models.moviedetails.MovieDetail
 import lt.todo.movieapi.data.network.models.popular.PopularResults
 import lt.todo.movieapi.data.network.models.search.SearchResults
@@ -28,4 +31,9 @@ class ApiHelperImpl @Inject constructor(
     suspend fun getMovieDetail(movieId: String):
             Response<MovieDetail> = movieApi.getMovieDetail(movieId)
 
+    suspend fun getActors(movieId: String):
+            Response<actorsResults> = movieApi.getActors(movieId)
+
+    suspend fun getActorsDetail(actorId: String):
+            Response<ActorDetail> = movieApi.getActorDetail(actorId)
 }

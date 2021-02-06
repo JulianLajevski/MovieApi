@@ -7,11 +7,6 @@
         android:icon="@drawable/movie_selector"/>
 
     <item
-        android:id="@+id/favoriteMovieFragment"
-        android:title="@string/favorite_movies_fragment"
-        android:icon="@drawable/favorite_selector"/>
-
-    <item
         android:id="@+id/searchMovieFragment"
         android:title="Search"
         android:icon="@drawable/ic_search_movies"

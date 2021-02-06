@@ -40,7 +40,7 @@
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginTop="168dp"
-        android:src="@drawable/ic_movie"
+        android:src="@drawable/video_camera"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

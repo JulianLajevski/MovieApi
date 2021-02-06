@@ -78,9 +78,4 @@
             android:id="@+id/action_popularMoviesFragment_to_movieDetailsActivity"
             app:destination="@id/movieDetailsActivity" />
     </fragment>
-    <fragment
-        android:id="@+id/movieDetailFragment"
-        android:name="lt.todo.movieapi.MovieDetailFragment"
-        android:label="fragment_movie_detail_fragment"
-        tools:layout="@layout/fragment_movie_detail_fragment" />
 </navigation>

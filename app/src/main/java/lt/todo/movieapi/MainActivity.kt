@@ -24,7 +24,6 @@ class MainActivity : AppCompatActivity() {
         val appBarConfiguration = AppBarConfiguration(
                 setOf(
                         R.id.moviesFragment,
-                        R.id.favoriteMovieFragment,
                         R.id.searchMovieFragment,
                         R.id.quoteMovieFragment
                 )

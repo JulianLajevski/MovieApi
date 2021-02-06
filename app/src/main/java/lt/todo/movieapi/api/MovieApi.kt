@@ -1,5 +1,8 @@
 package lt.todo.movieapi.api
 
+import lt.todo.movieapi.data.network.models.actors.Cast
+import lt.todo.movieapi.data.network.models.actors.actorsResults
+import lt.todo.movieapi.data.network.models.actorsdetails.ActorDetail
 import lt.todo.movieapi.data.network.models.moviedetails.MovieDetail
 import lt.todo.movieapi.data.network.models.popular.PopularResults
 import lt.todo.movieapi.data.network.models.search.SearchResults
@@ -28,4 +31,10 @@ interface MovieApi {
 
     @GET("movie/{movie_id}")
     suspend fun getMovieDetail(@Path("movie_id") movieId: String): Response<MovieDetail>
+
+    @GET("movie/{movie_id}/credits?")
+    suspend fun getActors(@Path("movie_id") query: String): Response<actorsResults>
+
+    @GET("person/{actor_id}")
+    suspend fun getActorDetail(@Path("actor_id") actorId: String): Response<ActorDetail>
 }

@@ -19,7 +19,7 @@ class MovieDetailViewModel @ViewModelInject constructor(
         get() = _movieDetails
 
 
-    fun fetchMovieDetails(id: String){
+    fun fetchMovieDetails(id: String) {
         viewModelScope.launch {
             val results = movieDetailsRepository.getMovieDetail(id)
             _movieDetails.postValue(results.body())
